@@ -21,7 +21,9 @@ DIRS=audio_ctl/ codec/
 LIB_VERSION=
 LIB_SUB_VERSION=.0.0
 
-LDFLAGS+=  -O2  -lamadec -lm -lc  -shared -Wl,--shared -Wl,-soname,$(TARGET)$(LIB_VERSION)
+export SRCTREE
+
+LDFLAGS+=  -O2 -L${SRCTREE}/../amadec  -lamadec -lm -lc  -shared -Wl,--shared -Wl,-soname,$(TARGET)$(LIB_VERSION)
 
 #INCLUDE=$(DIRS:%/=-I$(SRC)/%/include)
 INCLUDE=${SRCTREE}/include/ 
