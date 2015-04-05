@@ -1,14 +1,9 @@
-CC=${HOST_GCC}
-
-export CC
 all:
-	-make -C amavutils install
-	-make -C amadec install
-	-make -C amcodec install
-
-install:all
+	-make -C amavutils
+	-make -C amadec
+	-make -C amcodec
 
 clean:
+	-make -C amavutils clean
 	-make -C amadec clean
 	-make -C amcodec clean
-	-make -C amplayer clean
