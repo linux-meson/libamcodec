@@ -1,6 +1,12 @@
 TARGET = libamavutils.so
 
-TARGET_OBJS=amaudioutils.o amconfigutils.o amdisplayutils.o ammodule.o amsysfsutils.o Amvideoutils.o itemlist.o\
+TARGET_OBJS=amaudioutils.o \
+            amconfigutils.o \
+            amdisplayutils.o \
+            ammodule.o \
+            amsysfsutils.o \
+            Amvideoutils.o \
+            itemlist.o
 
 LDFLAGS += -shared -lm -lrt
 

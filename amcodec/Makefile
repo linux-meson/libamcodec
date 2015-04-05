@@ -7,14 +7,6 @@ QUITE_CMD=1
 
 INSTALL_FLAGS=-m 755
 
-CPP=$(CROSS)g++
-AS=$(CROSS)as
-AR=$(CROSS)ar
-LD=$(CROSS)ld
-NM=$(CROSS)nm
-STRIP=$(CROSS)strip
-OBJCOPY=$(CROSS)objcopy
-export CC CPP AS AR LD NM STRIP OBJCOPY
 
 TOPDIR=$(shell pwd)
 SRC?=$(TOPDIR)
@@ -29,7 +21,7 @@ DIRS=audio_ctl/ codec/
 LIB_VERSION=
 LIB_SUB_VERSION=.0.0
 
-LDFLAGS+=  -O2  -L$(PREFIX)/lib  -lamadec -lm -lc  -shared -Wl,--shared -Wl,-soname,$(TARGET)$(LIB_VERSION)
+LDFLAGS+=  -O2  -lamadec -lm -lc  -shared -Wl,--shared -Wl,-soname,$(TARGET)$(LIB_VERSION)
 
 #INCLUDE=$(DIRS:%/=-I$(SRC)/%/include)
 INCLUDE=${SRCTREE}/include/ 
@@ -54,7 +46,6 @@ $(target_all):$(DIROBJ)
 
 
 include $(SRCTREE)/rules.mk
-export CC CPP AS AR LD TOPDIR SRCTREE  CFLAGS LDFLAGS Q
 
 CLRDIR=$(dirs:%/=%-clrdir)
 clean:$(CLRDIR)
