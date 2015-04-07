@@ -19,7 +19,7 @@ TARGET?=libamcodec.so
 DIRS=audio_ctl/ codec/
 
 LIB_VERSION=
-LIB_SUB_VERSION=.0.0
+LIB_SUB_VERSION=
 
 export SRCTREE
 
